@@ -1,0 +1,46 @@
+<div class="CreateCategory">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <mat-card style="width: 90%; height: 100%; background-color: #ffffff">
+        <mat-card-content>
+            <!-- <form (ngSubmit)="OnCategorySubmit()" [formGroup]="registerForm">
+                <div *ngFor="let field of fields">
+                <mat-form-field class="w100" appearance="outline">
+                        <mat-label>{{field}}</mat-label>
+                        <input required autofocus matInput [formControlName]="field" 
+                        />
+                </mat-form-field>
+                </div>
+                <button mat-raised-button color="accent">Add</button>
+            </form> -->
+            <!-- <button mat-raised-button color="accent">Add</button> -->
+            
+            <form (ngSubmit)="OnCategorySubmit()">
+                <div>
+                <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input 
+                        required autofocus matInput
+                        type="text" 
+                        name="Title"
+                        placeholder="Enter Title"
+                        [(ngModel)]="category.Title"/>
+                </mat-form-field>
+
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput
+                        name="Description"
+                        placeholder="Enter the Description"
+                        rows="12"
+                        [(ngModel)]="category.Description">
+                    </textarea>
+                </mat-form-field>
+                </div>
+                <div class="buttons">
+                <button mat-raised-button color="accent">Add</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+

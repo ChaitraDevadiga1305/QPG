@@ -1,0 +1,23 @@
+<div class="category">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <!-- <mat-card  routerLink="/MCQs" *ngFor="let c of categories"> -->
+        <mat-card *ngFor="let c of categories" [routerLink]="'/MCQs/'+ c.categoryId" >
+        <mat-card-content>
+            <mat-list>
+                <div style="color: #212121; font-size: 30px; font-weight: bold;" mat-subheader>
+                    {{c.title}}
+                </div>
+                <mat-list-item>
+                    <p style="color: #757575; font-size: 20px;">{{c.description}}</p>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <div>
+        <button matTooltip="Click To Create Category" routerLink='/AddCategory' class="float" mat-fab color="accent">
+            <mat-icon>queue</mat-icon>
+          </button>
+    </div>
+</div>
+

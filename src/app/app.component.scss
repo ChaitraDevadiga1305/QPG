@@ -1,0 +1,67 @@
+.component-container{
+  margin:0px auto;
+  
+}
+.mat-sidenav-container{
+  top: 58px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  //background-color: pink 
+}
+
+.mat-sidenav {
+  width: 220px;
+  height: auto;
+  font-size: 20px;
+  text-align: left;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.title{
+  font-size: 25px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.login-signup-button-row {
+  display: block;
+  max-width: 600px;
+  
+}
+
+.mat-sidenav-content{
+  height: 100vh;
+}
+
+.login-signup-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+  border-radius: 20px;
+}
+
+.active{
+  background-color:  #C5CAE9;
+}
+
+.mat-toolbar{
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: auto;
+  
+}
+
+mat-toolbar {
+	box-shadow:  3px 3px 4px #212121;
+}

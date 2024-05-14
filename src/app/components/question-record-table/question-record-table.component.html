@@ -1,0 +1,104 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+      
+        <!-- Question Column -->
+        <ng-container matColumnDef="question">
+          <th mat-header-cell *matHeaderCellDef>Question</th>
+          <td mat-cell *matCellDef="let element">{{element.question}}</td>
+        </ng-container>
+      
+        <!-- Answer Column -->
+        <ng-container matColumnDef="answer">
+          <th mat-header-cell *matHeaderCellDef>Answer </th>
+          <td mat-cell *matCellDef="let element">{{element.answer}}</td>
+        </ng-container>
+      
+        <!--diagram Column -->
+        <!-- <ng-container matColumnDef="diagram">
+          <th mat-header-cell *matHeaderCellDef>Diagram</th>
+          <td mat-cell *matCellDef="let element">{{element.diagram}}</td>
+        </ng-container> -->
+      
+        <!--unit Column -->
+        <ng-container matColumnDef="unit">
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef>unit</th>
+          <td style="text-align: center;" mat-cell *matCellDef="let element">{{element.unit}}</td>
+        </ng-container>
+
+        <!--difficulty Column -->
+        <ng-container matColumnDef="difficulty">
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef>Difficulty</th>
+          <td style="text-align: center;" mat-cell *matCellDef="let element">{{element.difficulty}}</td>
+        </ng-container>
+
+        <!--Marks Column -->
+        <ng-container matColumnDef="marks">
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef>marks</th>
+          <td style="text-align: center;" mat-cell *matCellDef="let element">{{element.marks}}</td>
+        </ng-container>
+
+        <!--subject Column -->
+        <ng-container matColumnDef="subject">
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef>Subject</th>
+          <td style="text-align: center;" mat-cell *matCellDef="let element">{{element.subject}}</td>
+        </ng-container>
+
+        <!--edit column-->
+        <ng-container matColumnDef="edit">
+          <th style="text-align: center;" mat-header-cell *matHeaderCellDef>Edit</th>
+          <td style="text-align: center;" mat-cell *matCellDef="let element">
+            <!--Delete-->
+            <button mat-icon-button color="primary">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <!--Update-->
+            <button mat-icon-button color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+</div>
+<br>
+<!--Paginator-->
+<div>
+  <mat-form-field>
+    <mat-label style="color:deeppink;">Show questions per page</mat-label>
+    <select matNativeControl [(ngModel)]="ShowData.numberOfRecordPerPage" (change)="ShowQuestions()">
+      <option value="5"> 5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </mat-form-field>
+  <!-- <label style="color:deeppink;">Show <select [(ngModel)]="ShowData.numberOfRecordPerPage" (change)="ShowQuestions()">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select> Questions.
+  </label> -->
+  <div style="float:right; text-align: right">
+  <div class="Pagination">
+    <div>
+      <div class="btn-group" id="radiobtn">
+        <a mat-button color="accent" (click)="OnPrevious()">Previous</a>
+        <a  mat-button color="accent">{{ShowData.pageNumber}}</a>
+        <a mat-button color="accent" (click)="OnNext()">Next</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

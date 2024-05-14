@@ -1,0 +1,70 @@
+<div class="AddQuestion-container">
+    <mat-card style="width: 90%; height:auto; background-color: #C5CAE9">
+        <mat-card-content>
+            <mat-stepper #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup" class="AddQuestionForm">
+                        <ng-template matStepLabel>Download Template to Add Questions.</ng-template>
+                        <br>
+                        <div class="border">
+                            <button class="download" mat-stroked-button color="accent" (click)="templateSQ()">Download template.</button>
+                        </div>
+                        <br><br>
+                        <!-- <button class="download" mat-raised-button color="primary" (click)="templateSQ()">Click to
+                            download template for SQs.</button> -->
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Upload Questions</ng-template>
+                        <br>
+                        <div class="border">
+                        <input (change)="SelectFile($event)" type="file"/>
+                        <button (click)="UploadFile()" class="import" mat-stroked-button color="accent">Import</button>
+                        </div>
+                        <br><br>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step [stepControl]="thirdFormGroup">
+                    <form [formGroup]="thirdFormGroup">
+                        <ng-template matStepLabel>Show</ng-template>
+                        <br>
+                    <div>
+                        <app-question-record-table></app-question-record-table>
+                        <!-- <button class="save" mat-stroked-button color="accent">Show Questions</button> -->
+                    </div>
+                        <br><br>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    <br>
+                <div class="border">
+                    <p> You are now ready to create Question Paper.</p>
+                    <button class="createQP" mat-stroked-button color="accent">Create QP</button>
+                </div>
+                <br>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+                
+            </mat-stepper>
+        </mat-card-content>
+    </mat-card>
+</div>

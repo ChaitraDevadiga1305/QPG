@@ -1,0 +1,104 @@
+<div class="CreateMCQs">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <mat-card style="width: 90%; height: 100%; background-color: #ffffff">
+        <mat-card-content>
+            <form *ngIf="MCQ" (ngSubmit)="OnUpdateMCQSubmit()">
+                <div>
+                <!-- title -->
+                <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input 
+                        required autofocus matInput
+                        type="text" 
+                        name="Title"
+                        placeholder="Enter Title"
+                        [(ngModel)]="MCQ.title"/>
+                </mat-form-field>
+                <!-- //subject -->
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Subject</mat-label>
+                    <input 
+                    required matInput
+                    type="text" 
+                    name="Subject"
+                    placeholder="Enter the Subject"
+                    [(ngModel)]="MCQ.subject"/>
+                </mat-form-field>
+                <!-- Description -->
+                <mat-form-field  class="w100" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea 
+                        required
+                        matInput
+                        name="Description"
+                        placeholder="Enter the Description"
+                        rows="4"
+                        [(ngModel)]="MCQ.description">
+                    </textarea>
+                </mat-form-field>
+                <!-- Difficulty -->
+                <mat-radio-group aria-label="Select an option" required [(ngModel)]="MCQ.difficulty" name="difficulty">
+                    <mat-label  style="padding-left: 50px;">Difficulty : </mat-label>
+                    <mat-radio-button value="Easy">Easy</mat-radio-button>
+                    <mat-radio-button value="Average">Average</mat-radio-button>
+                    <mat-radio-button value="Hard">Hard</mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <!-- Total Marks -->
+                <mat-form-field  class="example-full-width" appearance="outline">
+                    <mat-label>Total Marks</mat-label>
+                    <input 
+                    required matInput
+                    type="text" 
+                    name="Marks"
+                    placeholder="Enter Total marks for MCQs"
+                    [(ngModel)]="MCQ.totalMarks"/>
+                </mat-form-field>
+                <!-- Number of questions -->
+                <mat-form-field  class="example-full-width" appearance="outline">
+                    <mat-label>  Total No.of Questions in MCQs</mat-label>
+                    <input 
+                    required matInput
+                    type="text" 
+                    name="TotalQuestion"
+                    placeholder="Total Question"
+                    [(ngModel)]="MCQ.numberOfQuestions"/>
+                </mat-form-field>
+                <!-- Unit -->
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Unit</mat-label>
+                        <input type="text"
+                            required
+                            placeholder="Pick unit"
+                            aria-label="Unit"
+                            matInput
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto"
+                            [(ngModel)]="MCQ.unit"/>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option style="font-size: 18px; font-weight: bold;" *ngFor="let option of options" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete> 
+                </mat-form-field>
+                <!-- Category -->
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Category</mat-label>
+                    <mat-select required [(ngModel)]="MCQ.categoryId" name="categoryId">
+                      <mat-option *ngFor="let c of catergories" [value]="c.categoryId">
+                        {{c.title}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="buttons">
+                <button mat-raised-button color="accent">Add</button>
+                <!--<button routerLink="/AddMCQQuestions" mat-stroked-button color="accent">Proceed</button>-->
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+{{MCQ|json}}
+
+

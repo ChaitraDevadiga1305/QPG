@@ -1,0 +1,59 @@
+<div class="Questions">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <div id="ContentToPDF">
+        <h1>{{header}}</h1>
+    <mat-card >
+        <h3>Important Instructions</h3>
+            <ul>
+                <li>All Questions are compulsory</li>
+                <li>Figures to right Indicate marks</li>
+                <li>Choose the correct option and Rewrite</li>
+            </ul>
+            <br><br>
+            <mat-divider></mat-divider>
+            <br><br>
+        <mat-card-content *ngFor="let Q of MCQQuestions; let i =index">
+            
+            <b>Q{{i+1}}) </b>
+            <span>{{Q.question}}</span>
+            <b style="float: right;">{{Q.marks}}</b>
+            <br><br>
+            <div style="padding-left: 25px;">
+                <ol type="A">
+                    <li>{{Q.opt1}}</li>
+                    <li>{{Q.opt2}}</li>
+                    <li>{{Q.opt3}}</li>
+                    <li>{{Q.opt4}}</li>
+                  </ol>
+            <!-- <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">A) {{Q.opt1}}</mat-radio-button>
+                <mat-radio-button value="2">B) {{Q.opt2}}</mat-radio-button>
+                
+                <mat-radio-button value="1">C) {{Q.opt3}}</mat-radio-button>
+                <mat-radio-button value="2">D) {{Q.opt4}}</mat-radio-button>
+            </mat-radio-group> -->
+            
+            </div>
+            <br>
+            <mat-divider></mat-divider>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    </div>
+    
+    <div>
+        <button matTooltip="Click To Add Questions" [routerLink]="'/AddMCQQuestions/'+ mcqId" class="float" mat-fab color="accent">
+            <mat-icon>queue</mat-icon>
+          </button>
+    </div>
+    <div>
+        <button mat-raised-button color="accent"
+        style="font-size: 20px; margin-left: 40%; margin-top: 20px; margin-bottom: 20px; border-radius: 30px; width: 20%;"
+         (click)="OnGeneratePDF()">
+            Click to Generate PDF 
+          </button>
+    </div>
+</div>
+
+
+

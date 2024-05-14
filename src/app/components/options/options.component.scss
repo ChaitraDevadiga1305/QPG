@@ -1,0 +1,59 @@
+mat-card{
+    display: block;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 45px
+}
+
+h4{
+    text-align: justify; 
+    font-size: 40px; 
+    margin: 20px 0px 0px 8px;
+    columns: #222222;
+}
+  
+p{
+    text-align: justify; 
+    font-size: 30px; 
+    margin-left: 8px;
+    color:#757575
+}
+
+.AddQuestion-Cont-button-row {
+    display: block;
+    max-width: 600px;
+      
+}
+    
+.AddQuestion-Cont-button-row .mat-mdc-button-base {
+      //margin: 8px 8px 8px 0;
+      border-radius: 20px;
+}
+
+.Manual-Cont-button-row {
+    display: block;
+    max-width: 600px;
+   
+      
+}
+    
+.Manual-Cont-button-row .mat-mdc-button-base {
+      //margin: 8px 8px 8px 0;
+      border-radius: 20px;
+      
+}
+
+
+button{
+    position:relative;
+    display: block;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: 10px;
+    // padding: 25px 10px 25px 10px;
+    width: 50%;
+    //height: 50px;
+    font-size: 18px;
+    
+  }
+    

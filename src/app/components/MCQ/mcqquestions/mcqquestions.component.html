@@ -1,0 +1,38 @@
+<div class="Questions">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <mat-card >
+        <mat-card-content *ngFor="let Q of MCQQuestions; let i =index">
+            
+            <b>Q{{i+1}}) </b>
+            <span>{{Q.question}}</span>
+            <br><br>
+            <div style="padding-left: 25px;">
+                <ol type="A">
+                    <li>{{Q.opt1}}</li>
+                    <li>{{Q.opt2}}</li>
+                    <li>{{Q.opt3}}</li>
+                    <li>{{Q.opt4}}</li>
+                  </ol>
+            <!-- <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">A) {{Q.opt1}}</mat-radio-button>
+                <mat-radio-button value="2">B) {{Q.opt2}}</mat-radio-button>
+                
+                <mat-radio-button value="1">C) {{Q.opt3}}</mat-radio-button>
+                <mat-radio-button value="2">D) {{Q.opt4}}</mat-radio-button>
+            </mat-radio-group> -->
+            </div>
+            <br>
+            <mat-divider></mat-divider>
+            <br>
+        </mat-card-content>
+    </mat-card>
+    <button mat-raised-button color="accent" 
+        style="margin-left: 40%; padding-top: 20px; margin-top: 20px; margin-bottom: 20px; padding-bottom:20px ; width:20%; border-radius: 30px; font-size: 20px;" 
+        [routerLink]="'/MCQPreview/'+mcqId">Preview</button>
+    <div>
+        <button matTooltip="Click To Add Questions" [routerLink]="'/AddMCQQuestions/'+ mcqId" class="float" mat-fab color="accent">
+            <mat-icon>queue</mat-icon>
+          </button>
+    </div>
+</div>
+

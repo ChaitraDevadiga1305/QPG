@@ -1,0 +1,39 @@
+<div class="mcqs">
+    <app-toolbar [ComponentName]="header"></app-toolbar>
+    <mat-card *ngFor="let m of MCQs">
+        <div class="menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon color="accent">menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+            <button [routerLink]="'/UpdateMCQ/'+ m.mcqId" mat-menu-item>Update</button>
+            <button mat-menu-item (click)="DeleteMCQ(m.mcqId)">Delete</button>
+            </mat-menu>
+        </div>
+        <mat-card-content>
+            <mat-list>
+            <mat-card-title style="font-size: 35px; font-weight: bold; padding-top: 18px;">
+                {{m.title}}
+            </mat-card-title>
+            <mat-card-subtitle style="font-size: 20px;">
+                {{m.subject}}
+            </mat-card-subtitle>
+                <p>{{m.description}}</p>
+            </mat-list>
+        </mat-card-content>
+        <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option color="accent"selected>Difficulty : {{m.difficulty}}</mat-chip-option>
+            <mat-chip-option color="accent"selected>Total Questions : {{m.numberOfQuestions}}</mat-chip-option>
+            <mat-chip-option color="accent"selected>Total Marks : {{m.totalMarks}}</mat-chip-option>
+            <mat-chip-option color="accent"selected>Unit : {{m.unit}}</mat-chip-option>
+            <mat-chip-option [routerLink]="'/ViewMCQQuestions/'+ m.mcqId + '/' + m.title" color="accent" selected>View Questions</mat-chip-option>
+        </mat-chip-listbox>
+        
+    </mat-card>
+    <div>
+        <button matTooltip="Click To Create MCQs" routerLink='/AddMCQ' class="float" mat-fab color="accent">
+            <mat-icon>queue</mat-icon>
+          </button>
+    </div>
+</div>
+
